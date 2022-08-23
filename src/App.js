@@ -1,4 +1,5 @@
 import React, { Suspense } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const Glossary = React.lazy(() => import('./Glossary'))
 const Accountant = React.lazy(() => import('./Accountant'))
@@ -20,10 +21,14 @@ const items = [
 
 function App() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <Glossary items={items} />
-      <Accountant items={items} />
-    </Suspense>
+    <Router>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<Glossary items={items} />}></Route>
+          <Route path="/accounting" element={<Accountant items={items} />}></Route>
+        </Routes>
+      </Suspense>
+    </Router>
   );
 }
 
