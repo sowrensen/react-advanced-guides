@@ -1,8 +1,21 @@
-import './App.css';
+import Glossary from "./Glossary";
+
+const items = [
+  {
+    id: 1,
+    term: 'Sugar',
+    description: 'White smaller bit sugar'
+  },
+  {
+    id: 2,
+    term: 'Vegetable Oil',
+    description: 'Cholesterol free soybean oil'
+  }
+]
 
 function App() {
   return (
-    <h3>Hello,world!</h3>
+    <Glossary items={items} />
   );
 }
 
