@@ -1,4 +1,6 @@
-import Glossary from "./Glossary";
+import React, { Suspense } from "react";
+
+const Glossary = React.lazy(() => import('./Glossary'))
 
 const items = [
   {
@@ -15,7 +17,9 @@ const items = [
 
 function App() {
   return (
-    <Glossary items={items} />
+    <Suspense fallback={<div>Loading...</div>}>
+      <Glossary items={items} />
+    </Suspense>
   );
 }
 
